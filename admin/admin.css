@@ -1,0 +1,630 @@
+body {
+	background-color: #fff;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	position:relative;
+	font-family : Arial, Helvetica, sans-serif;
+	font-size : 12px;
+	color : #666666;
+	text-align: left;
+}
+
+#content {
+	padding: 2px 10px;
+
+}
+
+#adminHeader {
+	height: 77px;
+	position: relative;
+}
+#adminHeader #homeLink {
+	height: 77px;
+	width: 250px;
+}
+#adminHeader #homeLink a {
+	text-decoration:none;
+	height: 77px;
+	width: 100%;
+	position:absolute;
+	left: 0px;
+}
+#adminHeader #homeLink a span {
+	visibility: hidden;
+}
+
+#adminHeader #topNav {
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:11px;
+	letter-spacing: .009em;
+	width: 293px;
+	height: 29px;
+	position: absolute;
+	top: 35px;
+	left: 450px;
+	text-align: center;
+	margin: 0;
+	padding: 10px 0 0 0;
+	vertical-align: middle;
+}
+#adminHeader #topNav ul {
+	display:inline;
+	margin: 0;
+	padding: 50px;
+	padding: 0 0 0 30px;
+}
+#adminHeader #topNav ul li {
+	display:inline;
+	list-style: none;
+	padding: 0 15px 0 0;
+}
+#adminHeader #topNav ul li a {
+	color: #969696;
+	text-decoration:none;
+}
+#adminHeader #topNav ul li a:hover {
+	color: #29509E;
+	text-decoration:none;
+}
+#featuredproject {
+	height: 145px;
+	width: 509px;
+}
+#homeContentCopy {
+	height: 145px;
+	width: 469px;
+	background-image:url(images/hm_content_bg.jpg);
+	background-position:top left;
+	background-repeat:no-repeat;
+	padding: 0 20px 0 20px;
+	margin:0;
+}
+#content h1{
+	font-size: 11px;
+	font-weight: bold;
+	margin: 0  0 10px 17px;
+	padding: 14px 0 0 0;
+}
+#content a {
+	color:#3D54A4;
+	text-decoration:none;
+}
+#content a:hover {
+	color:#3D54A4;
+	text-decoration:underline;
+}
+
+#subNav {
+	margin: 0;
+	height: 42px;
+	background-image:url(images/subnav_bg.gif);
+	background-position: left top;
+	background-repeat: repeat-x;
+	position: relative;
+	text-align: left;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+}
+#subNav ul {
+	display:inline;
+	margin: 0 0 0 4px;
+	padding: 0;
+}
+#subNav ul li {
+	display:inline;
+	list-style: none;
+	padding: 0 13px 0 0;
+}
+#subNav ul li a {
+	color: #969696;
+	text-decoration:none;
+}
+#subNav ul li a:hover {
+	color: #29509E;
+	text-decoration:none;
+}
+ #subNav ul li:before {
+	/*content: ":"; */
+	margin: 0 15px 0 0;
+	color:  #969696;
+}
+#subNav ul li.first:before {
+	content: "";
+}
+#subNav #subNavShell {
+	padding: 15px 0 0 0;
+}
+
+
+
+
+
+#innerShell {
+	min-height: 400px;
+	background-repeat: repeat-y;
+	background-position: center top;
+	margin: 0 ;
+	padding: 0;
+}
+#contentShell {
+	padding:0;
+	margin: 0 28px 0 24px;
+	font-family : Arial, Helvetica, sans-serif;
+	font-size : 12px;
+	color : #666666;
+	text-align: left;
+	border-bottom-color:#EAEAEA;
+	border-bottom-style:solid;
+	border-bottom-width: 1px;
+	background-color: #FFFFFF;
+}
+
+
+
+
+.tabset_content a:link, .tabset_content a:visited {
+	text-decoration: none;
+	color: #004D99;
+	font-weight: bold;
+}
+
+.tabset_content a:hover, .tabset_contenta:active {
+	color: #595959;
+}
+
+
+
+
+#container {
+	width: 767px;
+	/* margin: 0 auto; */
+	min-height: 100%;
+	height: auto !important;
+	height: 100%; /*stoopid ie*/
+	
+	padding:0;
+	margin: 0 ;
+	font-family : Arial, Helvetica, sans-serif;
+	font-size : 12px;
+	color : #666666;
+	text-align: left;
+	border-bottom-color:#EAEAEA;
+	border-bottom-style:solid;
+	border-bottom-width: 1px;
+	background-color: #FFFFFF;
+}
+
+#header {
+	height: 91px; 
+	width: 447px;
+	margin-bottom: 0 !important;
+}
+
+#header h1 {
+	position: relative;
+	height: 62px;
+	width: 61px;
+	left: 358px;
+	top: 13px;
+	cursor: move;
+}
+
+#header h1 span, #footer span {
+	display: none;
+}
+
+h2 {
+	padding: 5px 10px;
+	font-size: 14px;
+	font-weight: bold;
+	text-transform: uppercase;
+	margin: 0;
+}
+h3 {
+	padding: 5px 10px;
+	font-size: 14px;
+	font-weight: bold;
+	text-transform: uppercase;
+	color: #fff;
+	background: #296cb0;
+	cursor: pointer;
+	margin: 0;
+}
+
+h4 {
+	margin: 0;
+	padding: 5px 10px 0;
+	font-size: 12px;
+	color: #333;
+	border-bottom: 1px solid #eee;
+}
+
+ol {
+	margin: 0;
+	padding: 0 10px 5px 35px;
+}
+
+h3 a:link, h3 a:visited {
+	font-weight: bold;
+	letter-spacing: 1px;
+	display: block;
+	text-decoration: none;
+	color: #fff;
+}
+
+h3 a:hover, h3 a:active {
+	color: #fff;
+}
+
+h3.Introduction, h3.contact {
+	background: #ffa84f;
+}
+
+h3.parentchild {
+	background: #a9c6ec;
+}
+
+h3.level1 {
+	background: #7BADE0;
+}
+
+h3.level2 {
+	background: #66A1DB;
+}
+
+h3.level3 {
+	background: #5194D6;
+}
+
+h3.level4 {
+	background: #3D87D1;
+}
+
+h3.level5 {
+	background: #2F7AC6;
+}
+
+h3.level6 {
+	background: #296cb0;
+}
+
+h3.lanerental {
+	background: #adc96d;
+}
+
+h3.wateraerobics {
+	background: #c1d791;
+}
+
+h3.directions {
+	background: #FF4D4D;
+}
+
+#accordion {
+	background: #fff;
+}
+
+
+
+
+
+
+
+
+
+.tabset_tabs	{ 
+	margin:0; 
+	padding:0; 
+	list-style-type:none; 
+	position:relative; 
+	z-index:2; 
+	white-space:nowrap;
+	font-weight: bold;
+	}
+.tabset_tabs li	{ 
+	margin:0; 
+	padding: 0 13px 0 0;
+	display:inline 
+	}
+.tabset_tabs a	{ 
+	color: #969696;
+	border:0px; 
+	text-decoration:none; 
+	padding:0 0.6em; 
+	border-left-width:0; 
+	border-bottom:none 
+	}
+.tabset_tabs a:hover	{ 
+	color:#29509E ! important; 
+	/* background-color:#eff ! important  */
+	}
+.tabset_tabs a.active	{ 
+	color:black ! important; 
+	cursor:default; 
+	}
+
+.tabset_tabs li.firstchild a	{ 
+	border-left-width:1px 
+	}
+
+.tabset_content	{ 
+	border:0px; 
+	background-color:white; 
+	position:relative; 
+	z-index:1; 
+	padding: 15px 2px 2px 2px; 
+	display:none 
+	}
+.tabset_label	{ 
+	display:none 
+	}
+
+.tabset_content_active	{ 
+display:block 
+}
+
+@media aural{
+	.tabset_content,
+	.tabset_label	{ display:block }
+}
+
+
+
+
+
+
+
+
+
+
+#lightbox{
+	position: absolute;
+	left: 0;
+	width: 100%;
+	z-index: 100;
+	text-align: center;
+	line-height: 0;
+	}
+
+#lightbox a img{ border: none; }
+
+#outerImageContainer{
+	position: relative;
+	background-color: #fff;
+	width: 250px;
+	height: 250px;
+	margin: 0 auto;
+	}
+
+#imageContainer{
+	padding: 10px;
+	}
+
+#loading{
+	position: absolute;
+	top: 40%;
+	left: 0%;
+	height: 25%;
+	width: 100%;
+	text-align: center;
+	line-height: 0;
+	}
+#hoverNav{
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	z-index: 10;
+	}
+#imageContainer>#hoverNav{ left: 0;}
+#hoverNav a{ outline: none;}
+
+#prevLink, #nextLink{
+	width: 49%;
+	height: 100%;
+	background: transparent url(lightbox/blank.gif) no-repeat; /* Trick IE into showing hover */
+	display: block;
+	}
+#prevLink { left: 0; float: left;}
+#nextLink { right: 0; float: right;}
+#prevLink:hover, #prevLink:visited:hover { background: url(lightbox/prevlabel.gif) left 15% no-repeat; }
+#nextLink:hover, #nextLink:visited:hover { background: url(lightbox/nextlabel.gif) right 15% no-repeat; }
+
+
+#imageDataContainer{
+	font: 10px Verdana, Helvetica, sans-serif;
+	background-color: #fff;
+	margin: 0 auto;
+	line-height: 1.4em;
+	overflow: auto;
+	width: 100%	
+	}
+
+#imageData{	padding:0 10px; color: #666; }
+#imageData #imageDetails{ width: 70%; float: left; text-align: left; }	
+#imageData #caption{ font-weight: bold;	}
+#imageData #numberDisplay{ display: block; clear: left; padding-bottom: 1.0em;	}			
+#imageData #bottomNavClose{ width: 66px; float: right;  padding-bottom: 0.3em;	}	
+		
+#overlay{
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 90;
+	width: 100%;
+	height: 500px;
+	background-color: #000;
+	}
+
+
+
+
+
+
+
+/* formval.css */
+
+  .info   { color: black; background-color: transparent; font-weight: normal; }
+  .warn   { color: rgb(120,0,0); background-color: transparent; font-weight: normal; }
+  .error  { color: red; background-color: transparent; font-weight: bold }
+  .ok  { color: green; background-color: transparent; font-weight: bold }
+
+   .formtab TD      
+          { padding: 0.2em; height: 2.5em; vertical-align: top; } 
+
+.formtab_table  {
+	padding: 2px 10px;
+}		  
+  .formtab label      	{ 
+	font-weight: bold;
+	}
+
+
+/* checkboxes */
+  .checkcl    { text-align: right; }
+  .checkbox   { clear: right; float: right; margin: 0 0.5em; }
+  .formtab2 TD      
+          { padding: 0.2em; height: 2.5em; vertical-align: top;  }
+
+
+
+form {
+	margin: 0; 
+	padding: 0;
+    white-space: nowrap;
+	clear: none;
+	float: left;
+}
+
+
+
+
+
+
+/* ################################################ */
+/* table styling for lesson info on lesson.php page */
+/* ################################################ */
+
+
+
+.lesson_table thead th, .lesson_table tfoot th {
+	font-weight:bold;
+	font-family: arial, sans-serif, tahoma, verdana;
+	background-color: #E2E2E2;
+	border-bottom: 1px solid #B3BBB6;
+	border-top: 1px solid #B3BBB6;
+	text-transform: uppercase;
+	font-size: 11px;
+	line-height: 12px;
+	vertical-align: bottom;
+	text-align: left;
+	white-space:nowrap;
+	padding : 3px 8px;
+  }
+
+
+.lesson_table td {
+	font-size:12px;
+	font-family: arial, sans-serif, tahoma, verdana;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #B3BBB6;
+	padding : 3px 8px;
+	white-space:nowrap;
+}
+
+
+
+.actionButton, .button, .actionButton_classes {
+   color:#666;
+   font-family:Verdana;
+   font-weight:bold;
+   background-color:#E2E2E2;
+   border:1px solid;
+   border-top-color:#666;
+   border-left-color:#666;
+   border-right-color:#666;
+   border-bottom-color:#666;
+	padding: 2px;
+	padding-left: 3px;
+	padding-right: 3px;
+   }
+   
+.actionButton_classes {
+	width: auto;
+	font-size: 10pt;
+	padding-left: 2px;
+	padding-right: 2px;
+	white-space: nowrap;
+	padding-top: 1px;
+	padding-bottom: 1px;
+	visibility: visible;
+   }
+
+
+.customer_table thead th, .lesson_table tfoot th {
+	font-weight:bold;
+	font-family: arial, sans-serif, tahoma, verdana;
+	background-color: #E2E2E2;
+	border-bottom: 1px solid #B3BBB6;
+	border-top: 1px solid #B3BBB6;
+	text-transform: uppercase;
+	font-size: 11px;
+	line-height: 12px;
+	vertical-align: bottom;
+	text-align: left;
+	white-space:nowrap;
+	padding : 3px 8px;
+  }
+
+
+.customer_table td {
+	font-size:12px;
+	font-family: arial, sans-serif, tahoma, verdana;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #B3BBB6;
+	padding : 3px 8px;
+	white-space:wrap;
+}
+
+
+
+
+/* ################################################ */
+/* table styling for excel table info on excel_report.php page */
+/* ################################################ */
+
+
+
+.excel_table thead th, .excel_table tfoot th {
+	font-weight:bold;
+	font-family: arial, sans-serif, tahoma, verdana;
+	background-color: #E2E2E2;
+	border-bottom: 1px solid #B3BBB6;
+	border-top: 1px solid #B3BBB6;
+	text-transform: uppercase;
+	font-size: 11px;
+	line-height: 12px;
+	vertical-align: bottom;
+	text-align: left;
+	white-space:nowrap;
+	padding : 3px 8px;
+  }
+
+
+.excel_table td {
+	font-size:12px;
+	font-family: arial, sans-serif, tahoma, verdana;
+	padding : 3px 8px;
+	white-space:nowrap;
+	border: thin solid #B3BBB6;
+}
+
+
+
+
+
+	

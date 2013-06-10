@@ -1,0 +1,95 @@
+
+<p>A form is to be established which will allow for the searching of users.</p>
+
+<p>
+<form action='' method='POST'>
+<table cellpadding='5' cellspacing='0' border='0'>
+  <tr valign='bottom'>
+    <td valign='bottom'>
+      <strong>Customer_ID:</strong>
+    </td>
+    <td valign='bottom'>
+      <input type='text' size='30' name='customer_id'<? isset($customer_id) ? print " value='{$customer_id}'"; ?>>
+    </td>    
+    <td valign='bottom'>&nbsp;
+      
+    </td>
+    <td valign='bottom'>&nbsp;
+      
+    </td>
+  </tr>
+  
+  <tr valign='bottom'>
+    <td valign='bottom'>
+      <strong>Email:</strong>
+    </td>
+    <td valign='bottom'>
+      <input type='text' size='30' name='email'<? isset($email) ? print " value='{$email}'"; ?>>
+    </td>    
+    <td valign='bottom'>
+      <strong>Username:</strong>
+    </td>
+    <td valign='bottom'>
+      <input type='text' size='30' name='username'<? isset($username} ? print " value='{$username}'"; ?>>
+    </td>
+  </tr>
+
+  <tr valign='bottom'>
+    <td valign='bottom'>
+      <strong>First Name:</strong>
+    </td>
+    <td valign='bottom'>
+      <input type='text' size='30' name='first_name'<? isset($first_name} ? print " value='{$first_name}'"; ?>>
+    </td>    
+    <td valign='bottom'>
+      <strong>Last Name:</strong>
+    </td>
+    <td valign='bottom'>
+      <input type='text' size='30' name='last_name'<? isset($last_name} ? print " value='{$last_name}'"; ?>>
+    </td>
+  </tr>
+
+
+  <tr valign='bottom'>
+    <td valign='bottom'>
+      <strong>Child First Name:</strong>
+    </td>
+    <td valign='bottom'>
+      <input type='text' size='30' name='child_first_name'<? isset($child_first_name} ? print " value='{$child_first_name}'"; ?>>
+    </td>    
+    <td valign='bottom'>
+      <strong>Child Last Name:</strong>
+    </td>
+    <td valign='bottom'>
+      <input type='text' size='30' name='child_last_name'<? isset($child_last_name} ? print " value='{$child_last_name}'"; ?>>
+    </td>
+  </tr>
+
+  <tr valign='bottom'>
+    <td valign='bottom'>
+      <strong>Home Phone:</strong>
+    </td>
+    <td valign='bottom'>
+      <input type='text' size='30' name='phone_home'<? isset($phone_home} ? print " value='{$phone_home}'"; ?>>
+    </td>    
+    <td valign='bottom'>
+      <strong>Cell Phone:</strong>
+    </td>
+    <td valign='bottom'>
+      <input type='text' size='30' name='phone_cell'<? isset($phone_cell} ? print " value='{$phone_cell}'"; ?>>
+    </td>
+  </tr>
+
+  
+  <tr>
+    <td valign='bottom'>
+      <input type='submit' name='submit' value='Submit'>  
+      <input name='request_id' type='hidden' value='<? print rand(); ?>'>
+    </td>
+    <td valign='bottom'>&nbsp;
+      
+    </td>
+  </tr>
+</table>
+</form>
+</p>

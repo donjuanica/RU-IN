@@ -1,0 +1,40 @@
+
+<p>Displays the results of the search for user based on the information provided in the search customer form.</p>
+
+<p>
+<table cellpadding='3' cellspacing='3' border='0'>
+  <tr>
+    <th>View</th>
+    <th>Customer_ID</th>
+    <th>Customer Name</th>
+    <th>Email</th>
+    <th>Username</th>
+    <th>Home Phone</th>
+    <th>Cell Phone</th>
+    <th>Child Name</th>
+    <th>Date Created</th>
+    <th>Edit</th>
+  </tr>
+<?php
+while() 
+{
+	print " <form action='' method='POST'>
+  <tr valign='bottom'>\n
+    <td valign='bottom'><input type='submit' name='view' value='View'></td>\n
+    <td valign='bottom'>".$this->values['customer_id']."</td>\n
+    <td valign='bottom'>".$this->values['first_name']." ".$this->values['last_name']."</td>\n
+    <td valign='bottom'>".$this->values['email']."</td>\n
+    <td valign='bottom'>".$this->values['username']."</td>\n
+    <td valign='bottom'>".$this->values['phone_home']."</td>\n
+    <td valign='bottom'>".$this->values['phone_cell']."</td>\n
+    <td valign='bottom'>".$this->values['child_first_name']." ".$this->values['child_last_name']."</td>\n
+    <td valign='bottom'><input type='submit' name='edit' value='Edit'></td>\n
+  </tr>\n 
+  <input name='customer_id' type='hidden' value='".$this->values['customer_id']."'>
+  <input name='request_id' type='hidden' value='". rand() ."'>
+  </form>\n
+      ";
+}
+?>
+</table>
+</p>

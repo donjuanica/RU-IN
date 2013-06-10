@@ -1,0 +1,90 @@
+<div id="overDiv" style="position:absolute; visibility:hidden; z-index:1000;"></div>
+<?php 
+global $table_header , $course_row , $table_footer;
+?>
+
+
+ 
+<br />
+<br />
+
+<h4>Email Queue:</h4>
+
+<p>
+<table cellpadding="5" cellspacing="0" style=" font-size: 12px">
+
+<tr valign="top">
+    <td  valign="top">Number of queued mail messages:&nbsp;<strong><?php 
+$how_many_queued_mail_tmp = queued_mail_count();
+print $how_many_queued_mail_tmp['value']; ?></strong></td>
+ </tr>
+ 
+ <tr valign="bottom">
+  	<td valign="bottom" >
+    	<form method="POST">
+            <input type="submit" name="process_email_submit" value="Process Queued Mail">
+            <input type="hidden" name="request_id_process_email" value="987654321">
+		</form>
+  	</td>
+ </tr>
+ 
+ <tr valign="bottom">
+  	<td valign="bottom" >
+		<form method="POST">
+        	<table border=0><tr><td>
+            <input type="submit" name="process_email_by_batch_ID_submit" value="Send Queued Email Records with this Batch_ID"></td>
+            <td><input type='text' name='batch_id_to_send' /></td>
+            <input type="hidden" name="request_id_process_records_from_queue_by_batch_ID" value="987654321">
+		</form></tr></table>
+  	</td>
+ </tr>
+ 
+ <tr valign="bottom">
+  	<td valign="bottom" >
+		<form method="POST">
+        	<table border=0><tr><td>
+            <input type="submit" name="process_email_by_email_queue_ID_submit" value="Send Queued Email Records with this email_queue_ID"></td>
+            <td><input type='text' name='email_queue_id_to_send' /></td>
+            <input type="hidden" name="request_id_process_records_from_queue_by_email_queue_ID" value="987654321">
+		</form></tr></table>
+  	</td>
+ </tr>
+ 
+ <tr valign="bottom">
+  	<td valign="bottom" >
+		<form method="POST">
+            <input type="submit" name="list_all_queued_records_submit" value="List Queued Mail Records">
+            <input type="hidden" name="request_id_list_all_queued_records" value="987654321">
+		</form>
+  	</td>
+ </tr>
+ 
+ <tr valign="bottom">
+  	<td valign="bottom" >
+		<form method="POST">
+        	<table border=0><tr><td>
+            <input type="submit" name="remove_records_from_queue_by_batch_ID_submit" value="Remove Records From Queue with this Batch_ID"></td>
+            <td><input type='text' name='batch_id_to_remove' /></td>
+            <input type="hidden" name="request_id_remove_records_from_queue_by_batch_ID" value="987654321">
+		</form></tr></table>
+  	</td>
+ </tr>
+ 
+ <tr valign="bottom">
+  	<td valign="bottom" >
+		<form method="POST">
+        	<table border=0><tr><td>
+            <input type="submit" name="remove_records_from_queue_by_email_log_ID_submit" value="Remove Records From Queue with this email_log_ID"></td>
+            <td><input type='text' name='email_log_id_to_remove' /></td>
+            <input type="hidden" name="request_id_remove_records_from_queue_by_email_log_ID" value="987654321">
+		</form></tr></table>
+  	</td>
+ </tr>
+
+</table>
+</p>
+
+<br /><br />
+<h4>&nbsp;</h4>
+<h4>&nbsp;</h4>
+<br /><br />

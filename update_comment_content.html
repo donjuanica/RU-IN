@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Update Comment <?php echo $_POST['comment_id'] . ' - ' . SITE_NAME; ?></title>
+<meta http-equiv=content-type content="text/html; charset=UTF-8" />
+<link type="text/css" href="common.css" rel=stylesheet media=screen />
+<link type="text/css" href="common.css" rel=stylesheet media=print />
+<?php echo "<link rel='icon' type='image/png' href='Basketball_32x32.png' />"; ?>
+</head>
+<body>
+<div class="header">
+Update Comment <?php echo $_POST['comment_id'] ; ?>
+</div>
+<br />
+<br />
+
+<h1>Comment</h1>
+<?php
+foreach($GLOBALS['COMMENTS'] as $value) {
+?>
+<div class=comment_info>
+    <?php echo $value['NAME']." @ ".$value['DATE_TIME']; ?>
+</div>
+<div class=comment_content>
+	<form action='index.php' method=POST>
+	<table border="0" cellspacing="0" cellpadding="0" width="90%">
+	<tr>
+		<td width="100%">
+	    	<input class=comment_input type=text name='comment_content' value='<?php echo $value['COMMENT']; ?>'>
+	    	<input type=hidden name='comment_id' value='<?php echo $value['COMMENT_ID']; ?>'>
+	    </td>
+	    <td width="130px" align="right">
+			<button class='btn primary' type='submit' name='update_comment'  value='Update Comment'>
+	        	<span><span>Update Comment</span></span>
+	        </button>
+	    </td>
+	</tr>
+	</table>
+	</form>
+
+</div>
+<?php
+
+}
+
+?>
+
+<div class=comment_form>
+</div>
+    
+<div class=new_line></div>
+
+
+
+<div class=new_line></div>
+
+
+<div class="footer">
+<?php echo FOOTER_MESSAGE; ?><br>Email travis@epicswell.com to have your name added or removed from the list.
+</div>
+</body>
+</html>

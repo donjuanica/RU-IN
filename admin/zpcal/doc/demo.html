@@ -1,0 +1,224 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+
+<title>AJAX Calendar</title>
+
+ <meta name="description" content="Zapatec Javascript Windows behave the way you expect windows to behave, except that they are in your browser! Use our Alert, Confirm, Dialog windows. You can even define if the window is modal. Define your own Popup windows that will not be blocked by browsers.">
+
+ <meta name="keywords" content="dhtml windows,javascript,DHTML Windows,Javascript,ajax,AJAX,Ajax,ajax windows,AJAX Windows,windows controls,simple javascript windows,windows plugins,windows tools">
+ <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+ <META Name="Robots" Content="index,follow">
+ <META Name="Googlebot" Content="index,follow">
+ <META http-equiv="Pragma" content="no-cache">
+
+
+ <link href="../../website/css/zpcal.css" rel="stylesheet" type="text/css">
+ <link href="../../website/css/template.css" rel="stylesheet" type="text/css">
+
+
+ <link rel="SHORTCUT ICON" href="../../website/favicon.ico">
+
+ <script type='text/javascript' src='../../utils/zapatec.js'></script>
+ <script type="text/javascript" src="../../demo/src/zptabs.js"></script>
+
+
+
+ <script>
+		function changeDemo(url, css, demo) {
+			document.getElementById("tabs_content").style.display = "block";
+			demoTab.setPaneContent(url, "html/url");
+			demoTab.getContainer().style.width = "100%";
+			demoTab.getContainer().style.height = "100%";
+			demoTab.fireWhenReady(function(pane) {
+				var height = 0;
+				if (document.compatMode && document.compatMode == 'CSS1Compat') {
+					height = document.documentElement.scrollHeight | document.documentElement.offsetHeight;
+				} else {
+					height = document.body.scrollHeight | document.documentElement.scrollHeight;
+				}
+				pane.getContainer().style.height = height + "px";
+			});
+			Zapatec.Transport.fetch({
+				url : url + "?",
+				onLoad : function(response) {
+					htmlTab.value = response.responseText;
+				},
+				onError : function(error) {
+					alert(error.errorDescription);
+				}
+			});
+			cssTab.value = "";
+			function fetchCSS(theme) {
+				Zapatec.Transport.fetch({
+					url : '../themes/' + theme + '.css',
+					onLoad : function(response) {
+						cssTab.value += "/* " + theme + " */\n\n" + response.responseText + "\n";
+					},
+					onError : function(error) {
+						alert(error.errorDescription);
+					}
+				});
+			}
+			for (var i = 0; i < css.length; ++i) {
+				if (css[i] == 'none') {
+					cssTab.value = "There is no theme for this demo";
+				} else {
+					fetchCSS(css[i]);
+				}
+			}
+			var demosList = document.getElementById("zpDemoList").childNodes;
+			for (var i in demosList) {
+				if (demosList[i].nodeName == 'LI') 
+					if (demosList[i].childNodes[0].href.indexOf('#' + demo) == -1) {
+						demosList[i].childNodes[0].style.fontWeight = 'normal';
+					} else {
+						demosList[i].childNodes[0].style.fontWeight = 'bold';
+					}
+			}
+			document.title = "AJAX Calendar - " + zpdemos[demo].title;
+		}
+		
+		var zpdefDemo = "example1.html";
+		var zpdemos = {
+
+			"example1.html": {title: "Basic Calendar, Single Click", url: "../demo/example1.html", css: ["aqua"]},
+			"example2.html": {title: "Double Click, with Time", url: "../demo/example2.html", css: ["bluexp"]},
+			"example3.html": {title: "Single Click, Use An Icon, Disable Weekend Days", url: "../demo/example3.html", css: ["fancyblue"]},
+			"example4.html": {title: "Single Click, Different Alignment", url: "../demo/example4.html", css: ["forest"]},
+			"example5.html": {title: "Flat Calendar, Different Look for Special Days", url: "../demo/example5.html", css: ["green"]},
+			"example6.html": {title: "Flat Calendar, Extra Information for Special Days", url: "../demo/example6.html", css: ["greengrass"]},
+			"example7.html": {title: "Choose Multiple Days", url: "../demo/example7.html", css: ["maroon"]},
+			"example8.html": {title: "Two Coordinated Dates", url: "../demo/example8.html", css: ["system"]},
+			"example9.html": {title: "Update Drop-down Menus from a Calendar", url: "../demo/example9.html", css: ["win2k"]},
+			"example81.html": {title: "Two Coordinated Dates Highlight the Dates in Between", url: "../demo/example81.html", css: ["winter"]},
+			"example91.html": {title: "Saving Dates in Cookies", url: "../demo/example91.html", css: ["winxp"]},
+			"example92.html": {title: "Limit Time and Day Selection", url: "../demo/example92.html", css: ["wood"]},
+			"example93.html": {title: "Select Multiple Days in a Flat Calendar", url: "../demo/example93.html", css: ["yellow"]},
+			"example94.html": {title: "Two Month Calendar", url: "../demo/example94.html", css: ["maroon"]},
+			"example95.html": {title: "Six Month Calendar", url: "../demo/example95.html", css: ["bluexp"]},
+			"example96.html": {title: "Time Interval Calendar", url: "../demo/example96.html", css: ["fancyblue"]},
+			"specialdays.html": {title: "Special Days", url: "../demo/specialdays.html", css: ["bluexp"]},
+			"dow.html": {title: "Day of Week Selection", url: "../demo/dow.html", css: ["bluexp"]}
+		};
+	</script>
+</head>
+<body style="width: 990px;">
+
+
+
+  <!-- Left - Start -->
+<div class="leftSide-static">
+	<div class="leftBGTab">
+		<div class="leftTab">
+			<strong>Zapatec Calendar</strong>
+		</div>
+	</div>
+
+	<div class="leftBGMenu"><div class="leftMenu"><img alt='Javascript Windows Point arrow'  src="../../website/images/arrow-grey.gif" >&nbsp;&nbsp;&nbsp;<a href="index.html" class="lnksubpage">Overview</a></div></div>
+
+	
+	
+
+	<div class="leftBGMenu" style="height: auto;"><div class="leftMenu"><img alt='Javascript Windows Point arrow'  src="../../website/images/arrow-grey.gif" >&nbsp;&nbsp;&nbsp;<a href="demo.html" class="lnksubpage">Demos</a>
+		<br>
+		<ul id="zpDemoList" style="list-style-image: url(../../website/images/arrow-grey.gif); margin-left: 20px; padding-left: 0px;">
+		<script type="text/javascript">
+			for (var demo in zpdemos) {
+				document.write('\t\t<li><a href="#' + demo + '" onclick="changeDemo(zpdemos[\'' + demo + '\'].url, zpdemos[\'' + demo + '\'].css, \'' + demo + '\');" class="lnksubpage" style="font-size: .8em;">' + zpdemos[demo].title + '</a></li>');
+			}
+		</script>
+		</ul>
+	</div></div>
+	
+	<div class="leftBGMenu"><div class="leftMenu"><img alt='Javascript Windows Point arrow'  src="../../website/images/arrow-grey.gif" >&nbsp;&nbsp;&nbsp;<a href="wizard.html" class="lnksubpage">Wizard</a></div></div>
+
+	<div class="leftBGMenu"><div class="leftMenu"><img alt='Javascript Windows Point arrow'  src="../../website/images/arrow-grey.gif">&nbsp;&nbsp;&nbsp;<a href="docs.html" class="lnksubpage">Manual</a></div></div>
+
+
+	<div class="leftBGMenu"><div class="leftMenu"><img alt='Javascript Windows Point arrow'  src="../../website/images/arrow-grey.gif">&nbsp;&nbsp;&nbsp;<a href="license.html" class="lnksubpage">License</a></div></div>
+
+</div>
+<!-- Left - End -->
+
+<!-- start - Right Page content -->
+		<div class="rightSide-static" style="display:table">
+			<div class="pageImage"></div>
+
+			<div class="frameContent">
+				<div class="pageContent" style="width: 788px;">
+					<!-- Definition of the Tabs Container and TabBar -->
+					<div id="tabs_content" style="display : none;">
+						<div id="tabBar" style="width: 400px"></div>
+						
+						<div id="tabs" style="width : 100%;">
+							<textarea id="html_source" style="width : 100%; height : 500px;"></textarea>
+							<textarea id="css_source" style="width : 100%; height : 500px;"></textarea>
+						</div>
+					</div>
+					<!-- End of definition of the Tabs Container and TabBar -->
+				</div> <!-- end pageContent -->
+			</div> <!-- end frameContent -->
+		</div> <!-- end rightSide -->
+
+		<div align="center" style="clear: both;">
+			<a href='http://www.zapatec.com/website/main/contact.jsp' class='lnkblue'>Contact Us</a> | 
+			<a href='http://www.zapatec.com/website/main/employment.jsp' class='lnkblue'>Employment</a>
+			<br/><br/>&copy; 2004-2006 <b><a href="http://www.zapatec.com">Zapatec, Inc.</a></b> 
+		</div>
+		<script>
+			var tabs = {
+				tabs : [
+					{
+						id : "demo",
+						linkInnerHTML : "<span style='text-decoration : underline; border : none; padding : 0px;'>D</span>emo",
+						accessKey : "d",
+						title : "demo",
+						tabType : "iframe"
+					},
+					{
+						id : "html",
+						linkInnerHTML : "HTM<span style='text-decoration : underline; border : none; padding : 0px;'>L</span>",
+						accessKey : "l",
+						title : "HTML part of the demo.",
+						content : document.getElementById("html_source"),
+						tabType : "div"
+					},
+					{
+						id : "css",
+						linkInnerHTML : "CS<span style='text-decoration : underline; border : none; padding : 0px;'>S</span>",
+						accessKey : "s",
+						title : "CSS part of the demo.",
+						content : document.getElementById("css_source"),
+						tabType : "div"
+					}
+				]
+			};
+			var objTabs = new Zapatec.Tabs({
+			  tabBar : "tabBar",
+			  tabs : "tabs",
+			  source: tabs,
+			  sourceType : "json",
+			  themePath : '../../demo/themes/',
+			  changeUrl : false,
+			  theme: 'default',
+			  ignoreUrl: true
+			});
+			
+			var demoTab = objTabs.tabs["demo"].container;
+			var htmlTab = document.getElementById("html_source");
+			var cssTab = document.getElementById("css_source");
+			var hash = "";
+
+			var hash = "";
+			if (hash = window.location.hash.slice(1)) {
+				changeDemo(zpdemos[hash].url, zpdemos[hash].css, hash);
+			} else {
+				location.href += "#" + zpdefDemo;
+				changeDemo(zpdemos[zpdefDemo].url, zpdemos[zpdefDemo].css, zpdefDemo);
+			}
+		</script>
+	
+</body>
+</html>
+

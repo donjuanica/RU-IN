@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title><?php echo count($GLOBALS['in']) . ' - ' . SITE_NAME; ?></title>
+<meta http-equiv=content-type content="text/html; charset=UTF-8" />
+<link type="text/css" href="common.css" rel=stylesheet media=screen />
+<link type="text/css" href="common.css" rel=stylesheet media=print />
+<?php echo "<link rel='icon' type='image/png' href='".$link_icon."' />"; ?>
+<?php
+
+if(date('H') >= 6 && date('H') <= 12) echo '<meta http-equiv="refresh" content="350">';
+
+if(strstr($_SERVER['HTTP_USER_AGENT'],'iPhone') || strstr($_SERVER['HTTP_USER_AGENT'],'iPod')) {
+    echo '<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">';
+}
+
+?>
+</head>
+<body>
+<div class="header">
+	In or Out?&nbsp;&nbsp;<?php 
+	date_default_timezone_set('America/Denver');
+	echo date("Y-m-d"); ?> @ 11:30 AM
+</div>
+<div class="sub_header">
+	<a href="http://jtoo.net/inorout.html" target="_blank">Get your official In or Out browser extension. Thanks Jon!</a>
+
+<?php
+if($_SESSION['MESSAGE']) {
+    print '<br /><div class="message"><p>';
+    print implode("</p>\n<p>", $_SESSION['MESSAGE']);
+    print "</p></div>\n";
+}
+
+if($GLOBALS['SPECIAL_MESSAGE']) {
+    $i=0;
+    foreach( $GLOBALS['SPECIAL_MESSAGE'] as $value) { 
+        ?>
+        <div class=new_line></div>
+        <div class="special_message">
+        	<strong><font color=red>Notice:</font></strong>&nbsp;<?php echo $value;?>
+        </div>
+        <?php
+    } 
+}
+?>
+<!--
+We typically play at the outdoor courts just above building L within the Canyon Park Technology Center.
+<br />Check comments below for any change in venue.
+<br /><br />
+Directions to Steve Vail's church: <a href="http://maps.google.com/maps?saddr=N+Technology+Way&daddr=Unknown+road&hl=en&ll=40.323367,-111.690187&spn=0.017292,0.013797&sll=40.324411,-111.679915&sspn=0.003057,0.002747&geocode=FfhLZwId-uRX-Q%3BFTxQZwIdZLFX-Q&vpsrc=6&mra=me&mrsp=0,1&sz=19&t=h&z=16" target="_blank">145 East 1500 North, Orem</a>
+<br />
+<br />
+Directions to the UVU church: <a href="http://maps.google.com/maps?saddr=N+Technology+Way&daddr=Unknown+road&hl=en&ll=40.305974,-111.68787&spn=0.138371,0.110378&sll=40.283845,-111.715631&sspn=0.006117,0.003449&geocode=FfhLZwId-uRX-Q%3BFb-vZgIdxlpX-Q&vpsrc=6&mra=dme&mrsp=1&sz=18&t=h&z=13" target="_blank">800 West, 800 South, Orem</a>
+<br /><font size="-1" color="black">If gate is closed, ring buzzer and say you are playing basketball in the Stake Center. The CES Director has OK-ed this.</font>
+<br />
+<br />
+Directions to Clark Winegar's church: <a href="http://maps.google.com/maps?saddr=N+Technology+Way&daddr=275+E+500+S+St,+Pleasant+Grove,+UT+84062&hl=en&sll=40.323721,-111.680247&sspn=0.002178,0.002411&geocode=FUpKZwIdTONX-Q%3BFXfQZwId2gZX-SnxB2LnP4RNhzGq8muP2qWUug&vpsrc=0&gl=us&mra=ls&t=h&z=14" target="_blank">275 E 500 S St, Pleasant Grove, UT 84062</a>
+-->
+
+</div>
+
+<?php
+
+if(isset($_SESSION['PLAYER_ID'])) {
+	if(isset($_SESSION['INOROUT'])) {
+	?>
+    <table border="0" cellpadding="1" cellspacing="0" align="center">
+	    <tr>
+	    	<td valign="middle"><p>You are currently&nbsp;<?php
+				if($_SESSION['INOROUT'] == 1) print "<font color=green><b>In</b></font>."; 
+				else if($_SESSION['INOROUT'] == 0) print '<font color=red><b>Out</b></font>.'; 
+				else print 'questionable.'; 
+		        ?></p>
+	        </td>
+	    	<td valign="middle">
+	        
+	            <form action='' method=POST class="choice_form">
+	                <input type=hidden name='key1' value='<?php echo $_SESSION['KEY']?>'>
+	                <input type=hidden name='key2' value='1'>
+	                <button class='btn primary' type='submit' name='yes'><span><span>Yes - I'm in!</span></span></button>
+	            </form>
+	        </td>
+	    	<td valign="middle">
+	            <form action='' method=POST class="choice_form">
+	                <input type=hidden name='key1' value='<?php echo $_SESSION['KEY']?>'>
+	                <input type=hidden name='key2' value='0'>
+	                <button class='btn primary' type='submit' name='no'><span><span>No - I'm out!</span></span></button>
+	            </form>
+	        </td>
+	    </tr>
+    </table>
+	<div class=new_line></div>
+	<?php
+	}
+} else echo '<div class=new_line></div>';
+
+
+if( count($GLOBALS['TODAYS_AVAILABLE_VENUES']) > 0) {
+	?><h1><?php print count($GLOBALS['TODAYS_AVAILABLE_VENUES']);
+	if(count($GLOBALS['TODAYS_AVAILABLE_VENUES']) == 1) print "&nbsp;Venue is"; else print "&nbsp;Venues are";
+	?>&nbsp;Available</h1>
+	<div class=comment_content>
+	<p>We will play at <strong><?php echo $GLOBALS['TODAYS_AVAILABLE_VENUES'][0]['VENUE_NAME']; ?> (#1)</strong> unless otherwise noted within the comments below.</p>
+	<table border="0" cellpadding="5" cellspacing="5" align="left">
+		<thead>
+			<tr>
+				<th align="right"><strong>#</strong></td>
+				<th align="left"><strong>NAME</strong></td>
+				<th align="left"><strong>INDOOR?</strong></td>
+				<th align="left"><strong>INSTRUCTIONS</strong></td>
+				<th align="left"><strong>ADDRESS</strong></td>
+			</tr>
+		</thead>
+		<?PHP
+		$cnt=1;
+		foreach($GLOBALS['TODAYS_AVAILABLE_VENUES'] as $value) {
+			?>
+			<tr>
+				<td align="right">
+					<?php if($value['PLAYER_ID'] == $_SESSION['PLAYER_ID']) { ?>
+					<form action="index.php" method=POST>
+						<input type=hidden name='venue_available_id' value="<?php echo $value['VENUE_AVAILABLE_ID']; ?>">
+						<button class='btn primary' type='submit' name='set_venue_NOT_available' value='1'><span><span>Not Available</span></span></button>
+					</form>
+					&nbsp;
+					<?php
+					}
+					echo $cnt; ?>.
+				</td>
+				<td><?php echo $value['VENUE_NAME']; ?></td>
+				<td><?php if($value['VENUE_INDOOR'] > 0) echo 'Indoor'; else echo 'Outdoor'; ?></td>
+				<td><?php echo $value['VENUE_INSTRUCTIONS']; ?></td>
+				<td><a href="<?php echo $value['VENUE_URL']; ?>" target="_blank"><?php echo $value['VENUE_ADDRESS']; ?></a></td>
+			</tr>
+			<?php
+			$cnt++;
+		}
+		?>
+	</table><div class=clear_both></div>
+	</div><?php
+	
+}
+?>
+        <!--
+        <div class=new_line></div>
+        <div class="special_message">
+        	<strong><font color=red>Notice:</font></strong>&nbsp;A cookie has been added which will keep track of who you are so you don't have to use the links in the email until you clear your cookies.  Also, the number next to your name indicates how many times you've agreed to play in the past month.
+        </div>
+        -->
+<div class=new_line></div>
+<h1><?php 
+print count($GLOBALS['in']);
+if(count($GLOBALS['in']) == 1) print "&nbsp;is"; else print "&nbsp;are";
+?>&nbsp;In</h1>
+<div class=list_box_in><?php 
+	foreach( $GLOBALS['in'] as &$value) { 
+	    echo "<div class=list_name>".$value."</div>\n";
+	} 
+	?><div class=clear_both></div>
+</div>
+<br />
+
+
+<h1><?php 
+if(count($GLOBALS['COMMENTS']) > 1) 
+	print count($GLOBALS['COMMENTS'])."&nbsp;Comments";
+else if(count($GLOBALS['COMMENTS']) == 1) 
+	print count($GLOBALS['COMMENTS'])."&nbsp;Comment";
+else print "Comments";?></h1>
+<?php
+foreach($GLOBALS['COMMENTS'] as $value) {
+print "
+<div class=comment_info>
+    ".$value['NAME']." @ ".$value['DATE_TIME'];
+if($_SESSION['PLAYER_ID'] == $value['PLAYER_ID']) echo '&nbsp;&nbsp;&nbsp;&nbsp;[<a href="update_comment.php?comment_id='.$value['COMMENT_ID'].'"><font size=-2>Update this Comment</font></a>]';
+if($_SESSION['PLAYER_ID'] == $value['PLAYER_ID'] or $_SESSION['PLAYER_ID'] == 1) echo '&nbsp;&nbsp;&nbsp;&nbsp;[<a href="index.php?comment_id='.$value['COMMENT_ID'].'&delete_comment=Delete Comment"><font size=-2>Delete this Comment</font></a>]';
+echo "</div>
+<div class=comment_content>
+    ".$value['COMMENT']."
+</div>\n"; 
+}
+
+?>
+<br />
+<div class=comment_form>
+    <?php 
+    if($_SESSION['PLAYER_ID']) {
+        ?>
+        <form action='' method=POST>
+        <table border="0" cellspacing="0" cellpadding="0" width="98%">
+        	<tr>
+	        	<td width="100%">
+	            		<input class=comment_input type=text name='comment_content'>
+		            </td>
+		            <td width="130px" align="right">
+		        		<button class='btn primary' type='submit' name='submit_comment'  value='Add Comment'>
+		                	<span><span>Add Comment</span></span>
+		                </button>
+		            </td>
+	        </tr>
+        </table>
+        </form>
+        <?php
+    }
+    ?>
+</div>
+    
+
+<table border="0" cellspacing="0" cellpadding="0" width="98%" align="center">
+	<tr align="center">
+		<td width="100%" align="center">
+			<br />
+			<?php echo $_SESSION['WEATHER']; ?>
+		</td>
+	</tr>
+</table>
+<br />
+<br />
+
+<h1><?php 
+print count($GLOBALS['out']);
+if(count($GLOBALS['out']) == 1) print "&nbsp;is"; else print "&nbsp;are";
+?>&nbsp;Out</h1>
+<div class=list_box_out><?php 
+	foreach( $GLOBALS['out'] as &$value) { 
+	    echo "<div class=list_name>".$value."</div>\n";
+	} 
+	?><div class=clear_both></div>
+</div>
+<br />
+<br />
+
+<h1><?php 
+print count($GLOBALS['question']);
+if(count($GLOBALS['question']) == 1) print "&nbsp;is"; else print "&nbsp;are";
+?>&nbsp;Questionable</h1>
+<div class=list_box_unanswered><?php 
+	foreach( $GLOBALS['question'] as &$value) { 
+	    echo "<div class=list_name>".$value."</div>\n";
+	} 
+	?><div class=clear_both></div>
+</div>
+<br />
+<br />
+
+
+
+	
+	</table>
+
+
+
+<h1>Venue Manager</h1>
+<div class=comment_content>
+<?php
+if( count($GLOBALS['VENUES']) > 0) {
+	?><table border="0" cellspacing="3px" cellpadding="3px">
+		<thead>
+			<tr>
+				<th align="left"><strong>NAME</strong></td>
+				<th align="left"><strong>ADDRESS</strong></td>
+				<th align="left"><strong>INDOOR?</strong></td>
+				<th align="left"><strong>STATUS</strong></td>
+				<th align="left"><strong>TOOLS</strong></td>
+			</tr>
+		</thead>
+<?php
+	foreach($GLOBALS['VENUES'] as $value) {
+		?>
+		<tr>
+			<td><?php echo $value['VENUE_NAME']; ?></td>
+			<td><a href="<?php echo $value['VENUE_URL']; ?>" target="_blank"><?php echo $value['VENUE_ADDRESS']; ?></a></td>
+			<td><?php if($value['VENUE_INDOOR']==1) echo 'Yes - Indoor'; else echo 'No - Outside'; ?></td>
+			<td><?php if($value['VENUE_STATUS']==1) echo 'Active'; else echo 'Inactive'; ?></td>
+			<td>
+				<?php if($value['VENUE_OWNER_PLAYER_ID'] == $_SESSION['PLAYER_ID']) { ?>
+		        <form action="manage_venue.php" method=POST>
+	                <input type=hidden name='venue_id' value="<?php echo $value['VENUE_ID']; ?>">
+		            <button class='btn primary' type='submit' name='no'><span><span>Update Venue</span></span></button>
+		        </form>
+				&nbsp;
+				<?php
+				}
+				?>
+		        <form action="index.php" method=POST>
+	                <input type=hidden name='venue_id' value="<?php echo $value['VENUE_ID']; ?>">
+		            <button class='btn primary' type='submit' name='set_venue_available' value='1'><span><span>Set Available for Today</span></span></button>
+		        </form>
+			</td>
+		</tr>
+		<?php
+	}
+	
+	?></table><?php
+}
+?>
+    <?php 
+    if($_SESSION['PLAYER_ID']) {
+        ?>
+        <form action="manage_venue.php" method=GET>
+            <button class='btn primary' type='submit' name='no'><span><span>Add Venue</span></span></button>
+        </form>
+        <?php
+    }
+    ?>
+</div>
+
+<br />
+<br />
+
+
+
+
+<?php 
+if($GLOBALS['email_list']) {
+    print "<div class=email_list>";
+    print implode(", <br />\n", $GLOBALS['email_list']);
+    print "</div>\n";
+}
+
+
+?>
+<div class=new_line></div>
+<div class=new_line></div>
+
+<?php //var_dump($_POST); ?>
+<div class="footer">
+	<?php echo FOOTER_MESSAGE; ?><br>Email travis@epicswell.com to have your name added or removed from the list.
+</div>
+</body>
+</html>

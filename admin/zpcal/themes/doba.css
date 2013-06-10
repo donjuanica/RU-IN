@@ -1,0 +1,146 @@
+/* $Id: winter.css 4322 2006-09-04 08:49:33Z shacka $ */
+@import url("layouts/layout-2d.css");
+
+.calendar, .calendar table {
+  border-color: #556;
+  color: #000;
+  background-color: #FFFFFF;
+}
+
+.calendar .nav {
+	background-color: #aaaaaa;
+	font-weight: bold;
+	border-bottom-width: thin;
+	border-bottom-style: solid;
+	border-bottom-color: #2D2D2D;
+	border-top-width: thin;
+	border-top-style: solid;
+	border-top-color: #2D2D2D;
+}
+
+.calendar thead .title {
+  background-color: #FFFFFF;
+  color: #000;
+}
+
+.calendar thead .headrow {
+  background-color: #dddddd;
+  color: #000000;
+}
+
+.calendar thead .daynames {
+  background-color: #FFFFFF;
+}
+
+.calendar thead .name {
+  border-color: #556;
+  color: #000;
+}
+
+.calendar thead .weekend {
+  color: #a66;
+}
+
+.calendar thead .hilite {
+  background-color: #00FF40;
+  color: #000;
+  border-color: #04f;
+}
+
+.calendar thead .active {
+  background-color: #77c;
+}
+
+.calendar tbody .day {
+  color: #456;
+}
+.calendar tbody .day.othermonth {
+  color: #bbb;
+}
+.calendar tbody .day.othermonth.oweekend {
+  color: #fbb;
+}
+
+.calendar table .wn {
+  border-color: #000;
+  background-color: #aaaaaa;
+}
+
+.calendar tbody .rowhilite td {
+  background-color: #dddddd;
+}
+
+.calendar tbody .rowhilite td.wn {
+  background-color: #dddddd;
+}
+
+.calendar tbody td.hilite {
+  background-color: #B8FF71;
+  border-color: #bbb;
+}
+
+.calendar tbody td.active {
+  background-color: #dddddd;
+}
+
+.calendar tbody td.selected {
+  border-color: #818181;
+  background-color: #fff;
+  color: #030303;
+}
+
+.calendar tbody td.weekend {
+  color: #a66;
+}
+
+.calendar tbody td.today {
+  color: #424242;
+}
+
+.calendar tbody .disabled { color: #999; }
+
+.calendar tfoot .footrow {
+  background-color: #556;
+  color: #fff;
+}
+
+.calendar tfoot .ttip {
+	background-color: #F8F8F8;
+	color: #445;
+	border-top-width: thin;
+	border-top-style: solid;
+	border-top-color: #556;
+}
+
+.calendar tfoot .hilite {
+  background-color: #aaf;
+  border-color: #04f;
+  color: #000;
+}
+
+.calendar tfoot .active {
+  background-color: #77c;
+}
+
+.calendar .combo {
+  border-color: #655;
+  background-color: #FFFFFF;
+  color: #000;
+}
+
+.calendar .combo .hilite {
+  background-color: #acf;
+}
+
+.calendar .combo .active {
+  border-color: #46a;
+  background-color: #eef;
+}
+
+/* time */
+
+.calendar tfoot tr.time td { border-color: #000; }
+.calendar tfoot tr.time td.hour,
+.calendar tfoot tr.time td.minute { border-color: #aac; }
+.calendar tfoot tr.time td.hilite { background-color: #acf; }
+.calendar tfoot tr.time td.active { background-color: #9be; }

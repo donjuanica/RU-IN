@@ -1,0 +1,420 @@
+body {
+	font-family : Verdana, Arial, Helvetica, sans-serif;
+	background-color: #eeede5;
+	font-weight: bold;
+	font-size : 12px;
+	padding:0;
+	margin: 0;
+}
+
+.header {
+	margin: 0;
+	padding: 10px 5px;
+	font-family : Verdana, Arial, Helvetica, sans-serif;
+	font-size : 16px;
+	color : #fff;
+	background: #3b5998;
+	font-weight: bold;
+	vertical-align: middle;
+	clear:both;
+	text-align:center;
+	width:auto;
+}
+
+.sub_header {
+	margin: 0;
+	padding: 10px 5px;
+	font-family : Verdana, Arial, Helvetica, sans-serif;
+	font-size : 16px;
+	color : #fff;
+	background: #C9C9C9;
+	font-weight: bold;
+	vertical-align: middle;
+	clear:both;
+	text-align:center;
+	width:auto;
+}
+
+a , .a{
+	padding: 3px 3px 3px 5px;;
+	color: #444;
+	font-family : Verdana, Arial, Helvetica, sans-serif;
+	font-size:12px;
+	text-transform: underline;
+}
+a:link {color:#006600;}      /* unvisited link */
+a:visited {color:#000000;}  /* visited link */
+a:hover {color:#009900;}  /* mouse over link */
+a:active {color:#0000FF;}  /* selected link */
+
+
+p , .p{
+	padding: 3px 3px 3px 5px;;
+	color: #444;
+	font-family : Verdana, Arial, Helvetica, sans-serif;
+	font-size:12px;
+}
+
+form {
+	margin: 0; 
+	padding: 0px;
+	white-space: nowrap;
+	display:inline;
+}
+
+.choice_form {
+	margin: 0;
+	/*width:100px;*/
+}
+
+.choice_submit {
+	width: 100px;
+	height: 22px;
+	margin: 0;
+	padding: 0px 0px 3px 0px;
+	text-transform: uppercase;
+	color: #fff;
+	background: #3b5998;
+	border: 0px solid #879ac1;
+	font-size: 12px;
+	font-weight:bold;
+	white-space: normal;
+}
+
+.new_line { 
+	clear:both; 
+	height:10px;
+}
+
+.clear_both { 
+	clear:both; 
+}
+
+.message {
+	padding: 0;
+	margin: 0 0 15px 0;
+	clear:both;
+}
+
+.email_list {
+	font-size:10px;
+	margin:5px;
+	padding: 10px;
+	clear:both;
+	font-weight:normal;
+	
+}
+
+h1 {
+	padding: 5px 10px;
+	font-size: 16px;
+	font-weight: bold;
+	text-align:left;
+	/*text-transform: uppercase;*/
+	color: #fff;
+	background: #3b5998;
+	margin: 0;
+	/*border: 1px solid #879ac1;*/
+}
+
+h2 {
+	padding: 0;
+	font-family : Verdana, Arial, Helvetica, sans-serif;
+	text-align: left;
+	font-size: 16px;
+	font-weight: bold;
+	/*text-transform: uppercase;*/
+	color: #666666;
+	margin: 0 5px 10px 5px;
+}
+/*
+.list_box_in, .list_box_out {
+	margin: 0px;
+	padding: 0px;
+	width:auto;
+	border-color:#999999;
+	border-style:solid;
+	border-width: 1px;
+	background-color: #FFFFFF;
+}
+*/
+.list_box_in, .list_box_out {
+	/*min-width:200px;
+	max-width:400px;*/
+}
+
+.list_box_in {
+	background-color: #CEFFCE;
+}
+
+.list_box_venue {
+	background-color: #CEFFCE;
+}
+
+.list_box_out {
+	background-color: #FFE1E1;
+}
+
+.list_box_unanswered {
+	background-color: #FFFFD7;
+}
+
+
+.list_box_unanswered, .list_box_in, .list_box_out, .list_box_venue {
+	margin: 0;
+	padding: 5px;
+	color : #fff;
+	font-weight: bold;
+	vertical-align: middle;
+	clear:both;
+	text-align:center;
+	width:auto;
+	border-bottom: 1px solid #3b5998;
+}
+
+.list_name {
+	padding: 5px;
+	#margin: 0 10px;
+	color: #333;
+	width: 150px;
+	font-family : Verdana, Arial, Helvetica, sans-serif;
+	font-size : 12px;
+	color : #666666;
+	text-align: left;
+	float:left;
+	background-color: transparent;
+}
+
+
+.footer {
+	height:40px;
+	width:auto;
+	margin: 0;
+	padding: 10px 5px 0 5px;
+	clear:both;
+	font-family : Verdana, Arial, Helvetica, sans-serif;
+	font-size : 12px;
+	font-weight: bold;
+	color : #444;
+	vertical-align: middle;
+	text-align:center;
+}
+
+.comment_info {
+	width: auto;
+	padding: 10px 5px 2px 5px;
+	margin: 0px ;
+	font-family : Verdana, Arial, Helvetica, sans-serif;
+	font-size : 10px;
+	color : #ACACAC;
+	text-align: left;
+	white-space: nowrap;
+	color : #666666;
+	clear:both;
+}
+
+.comment_content{
+	width: auto;
+	padding: 2px 5px 10px 15px;
+	margin: 0px;
+	font-size : 12px;
+	font-weight:normal  !important;
+	color : black;
+	background-color: #FFFFFF;
+	clear:both;
+	border-bottom: 1px solid #3b5998;
+}
+
+.comment_form {
+	width: auto;
+	margin: 0px;
+	padding: 0px 5px;
+	font-family : Verdana, Arial, Helvetica, sans-serif;
+	font-size : 12px;
+	color : #666666;
+	text-align: left;
+}
+
+.comment_input {
+	width:95%;
+	height: 17px;
+	color: #666;
+	background: #ffffff;
+	margin: 2px 2px 2px 0;
+	padding: 2px;
+	border: 1px solid #999999;
+	font-size: 10pt;
+}
+
+.comment_submit {
+	width: 115px;
+	height: 22px;
+	text-transform: uppercase;
+	color: #fff;
+	background: #3b5998;
+	margin: 0px 0px 2px 2px;
+	border: 0px solid #879ac1;
+	font-size: 9pt;
+	font-weight:bold;
+	white-space: normal;
+	padding: 0px 0px 2px 0px;
+}
+
+.special_message{
+	font-size:14px;
+	padding: 10px;
+	margin: 10px 5px 0px 10px;
+	clear:both;
+}
+
+.special_message, .choice_box {
+	background-color: #eeede5;
+	border-color:#999999;
+	border-style:solid;
+	border-width: 1px;
+}
+
+
+
+.btn span span {
+  position:relative;
+  padding:2px;
+  }
+
+
+/* only needed if implementing separate hover/focus/active state for buttons */
+.btn:hover span, .btn:hover span span, .btn:focus span, .btn:focus span span {
+  cursor:pointer; /* important for any clickable/pressable element */
+  }
+.btn:focus, .btn:active {
+  outline:none; /* doesn't seem to be respected for <button>, only <a> */
+  }
+
+/* use if one button should be the 'primary' button */
+/*.primary {*/
+/*  font-weight:bold;*/
+/*  }*/
+
+
+
+
+
+/* Weather */
+.weatherGeneral div {
+color:#333333;
+font-size:11px;
+font-weight:bold;
+line-height:12px;
+margin:0 5px 3px;
+padding:0 0 3px;
+text-align:center;
+font-family : Verdana, Arial, Helvetica, sans-serif;
+}
+
+.weatherBottomLine div {
+background:url("http://adobe.epicswell.com/gray_line.gif") no-repeat scroll center bottom transparent;
+color:#333333;
+font-size:11px;
+font-weight:bold;
+line-height:14px;
+margin:0 5px 3px;
+padding:0 0 3px;
+text-align:center;
+font-family : Verdana, Arial, Helvetica, sans-serif;
+}
+
+.BottomLine div {
+background:url("http://adobe.epicswell.com/gray_line.gif") no-repeat scroll center bottom transparent;
+}
+
+
+.weatherSmallText div {
+color:#666666;
+font-size:9px;
+font-weight:bold;
+line-height:10px;
+margin:0 5px 3px;
+padding:0 0 3px;
+text-align:center;
+font-family : Verdana, Arial, Helvetica, sans-serif;
+}
+
+
+
+
+.SmallText div {
+color:#666666;
+font-size:9px;
+font-weight:bold;
+line-height:10px;
+margin:0 5px 3px;
+padding:0 0 3px;
+font-family : Verdana, Arial, Helvetica, sans-serif;
+}
+
+.SmallText div a {
+font-size:9px;
+font-weight:bold;
+font-family : Verdana, Arial, Helvetica, sans-serif;
+}
+
+
+.left div {
+text-align:left;
+}
+.right div {
+text-align:right;
+}
+
+
+
+
+thead th {
+	font-weight:bold;
+	font-family: arial, sans-serif, tahoma, verdana;
+	text-transform: uppercase;
+	font-size: 12px;
+	line-height: 12px;
+	vertical-align: bottom;
+	/*white-space:nowrap;*/
+	padding : 3px 4px;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* The following probably don't need to be here, but I'm leaving it just in case. */
+
+
+.centered_box{
+	margin: 4px auto;
+	padding: 0px;
+	position:relative;
+	width:408px;
+}
+
+h4 {
+	margin: 0;
+	font-size: 14px;
+	padding: 5px 10px 0;
+	color: #333;
+	border-bottom: 1px solid #eee;
+}
+
+
+

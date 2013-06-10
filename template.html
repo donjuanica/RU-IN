@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>{title}</title>
+<meta http-equiv=content-type content="text/html; charset=UTF-8" />
+<link type="text/css" href="common.css" rel=stylesheet media=screen />
+<link type="text/css" href="common.css" rel=stylesheet media=print />
+{head}
+<?php if(date('H') >= 8 && date('H') <= 11) echo '<meta http-equiv="refresh" content="350">'; ?>
+</head>
+<body>
+<div class="header">
+In or Out?&nbsp;&nbsp;<?php echo date("Y-m-d"); ?> @ 11:30 AM
+</div>
+{content}
+<div class="footer">
+{footer_message}<br>Email travis@epicswell.com to have your name added or removed from the list.
+</div>
+</body>
+</html>

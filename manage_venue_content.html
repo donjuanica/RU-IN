@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Venue Manager ~ <?php echo SITE_NAME; ?></title>
+<meta http-equiv=content-type content="text/html; charset=UTF-8" />
+<link type="text/css" href="common.css" rel=stylesheet media=screen />
+<link type="text/css" href="common.css" rel=stylesheet media=print />
+<?php echo "<link rel='icon' type='image/png' href='Basketball_32x32.png' />"; ?>
+</head>
+<body>
+<div class="header">Venue Manager</div>
+<br />
+<form action="index.php" method=POST>
+    &nbsp;&nbsp;<button class='btn primary' type='submit' name='go_back'><span><span>Go Back!</span></span></button>
+</form>
+<br />
+<br />
+<?php
+if($_SESSION['MESSAGE']) {
+    print "<div class=new_line></div><div class='message'>";
+    print implode("<br />\n", $_SESSION['MESSAGE']);
+    print "</div><br />\n";
+}
+?>
+<h1>Venue</h1>
+
+	<form action='index.php' method=POST>
+	<input type=hidden name='venue_id' value='<?php echo $VENUE_ID; ?>'>
+	<table border="0" cellspacing="5px" cellpadding="5px">
+		<tr>
+			<td width="50px" align="left"><strong>Name:</strong></td>
+			<td width="100px"><input class="venue_input" type=text name="venue_name" value="<?php echo $VENUE_NAME; ?>"></td>
+			<td width="130px" align="left">The name of the venue. Pick a name that is easy for everyone to identify quickly.</td>
+		</tr>
+		<tr>
+			<td width="50px" align="left"><strong>Address:</strong></td>
+			<td width="100px"><input class="venue_input" type=text name="venue_address" value="<?php echo $VENUE_ADDRESS; ?>"></td>
+			<td width="130px" align="left">The address of the venue. Enter an address that can easily be used to map the location on any device.</td>
+		</tr>
+		<tr>
+			<td width="50px" align="left"><strong>URL:</strong></td>
+			<td width="100px"><input class="venue_input" type=text name="venue_url" value="<?php echo $VENUE_URL; ?>"></td>
+			<td width="130px" align="left">A URL to Google Maps that shows where the venue is and how to get there. It must include "http://" at the beginning.</td>
+		</tr>
+		<tr>
+			<td width="50px" align="left"><strong>Instructions:</strong></td>
+			<td width="100px"><input class="venue_input" type=text name="venue_instructions" value="<?php echo $VENUE_INSTRUCTIONS; ?>"></td>
+			<td width="130px" align="left">Special instructions that will assist players in finding the right location.</td>
+		</tr>
+		<tr>
+			<td width="50px" align="left"><strong>Indoor?</strong></td>
+			<td width="100px"><input class="venue_input" type="checkbox" name="venue_indoor" value="1" <?php if($VENUE_INDOOR > 0 || $_REQUEST['venue_id'] < 1) echo ' checked="checked"'; ?>></td>
+			<td width="130px" align="left">Checked for 'Indoor' and no-check for 'Outside'.</td>
+		</tr>
+		<tr>
+			<td width="50px" align="left"><strong>Active?</strong></td>
+			<td width="100px"><input class="venue_input" type="checkbox" name="venue_status" value="1" <?php if($VENUE_STATUS > 0 || $_REQUEST['venue_id'] < 1) echo ' checked="checked"'; ?>></td>
+			<td width="130px" align="left">Checked for 'Active' and no-check for 'Inactive'.</td>
+		</tr>
+	</table>
+<?php 
+if($VENUE_ID < 1) { $button_name = 'add_venue'; $button_value = 'Add Venue'; } 
+else { $button_name = 'update_venue'; $button_value = 'Update Venue'; }
+?>
+	&nbsp;&nbsp;<button class="btn primary" type="submit" name="<?php echo $button_name; ?>" value="<?php echo $button_value; ?>">
+		<span><span><?php echo $button_value; ?></span></span>
+	</button>
+	</form>
+<?php if($VENUE_OWNER_PLAYER_ID == $_SESSION['PLAYER_ID']) echo '<p>You created this venue.</p>'; ?>
+<div class=new_line></div>
+<div class=new_line></div>
+	
+
+<h1>Venue Players</h1>
+<?php
+if( count($GLOBALS['VENUE_PLAYERS']) > 0) {
+	?><p>Players listed here are able to mark the venue as available on any given day.</p>
+	<table border="0" cellspacing="3px" cellpadding="3px">
+<?php
+	foreach($GLOBALS['VENUE_PLAYERS'] as $value) {
+		?>
+		<tr>
+			<td><?php echo $value['NAME']; ?></td>
+			<form action="index.php" method=POST>
+			<input type=hidden name='venue_id' value='<?php echo $VENUE_ID; ?>'>
+			<input type=hidden name='venue_player_id' value='<?php echo $value['PLAYER_ID']; ?>'>
+			<input type=hidden name='venue_owner_id' value='<?php echo $value['VENUE_OWNER_ID']; ?>'>
+			<td><button class='btn primary' type='submit' name='remove_player_from_venue' value='remove_player_from_venue'><span><span>Remove Player</span></span></button></td>
+			</form>
+		</tr>
+		<?php
+	}
+	
+	?></table><?php
+} else echo '<p>No other players are assigned to this venue. This means that only you are able to mark the venue as available on any given day.</p>';
+?>
+	
+<div class=new_line></div>
+
+	<form action="manage_venue_players.php" method=POST>
+		<input type=hidden name='venue_id' value='<?php echo $VENUE_ID; ?>'>
+		&nbsp;&nbsp;<button class='btn primary' type='submit' name='add_player_to_venue'><span><span>Add New Player To This Venue</span></span></button>
+	</form>
+
+</div>
+
+    
+<div class=new_line></div>
+
+
+
+<div class=new_line></div>
+
+
+<div class="footer">
+<?php echo FOOTER_MESSAGE; ?><br>Email travis@epicswell.com to have your name added or removed from the list.
+</div>
+</body>
+</html>

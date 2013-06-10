@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+<html>
+<head>
+<title>{title}</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta name="Description" content="" />
+<meta name="Keywords" content="" />
+<meta name="googlebot" content="nosnippet" />
+<link type="text/css" href="admin.css" rel="stylesheet" media="screen" />
+<?php global $active_nav; ?>
+{head_head}
+<link rel="icon" type="image/png" href="../Basketball_32x32.png" />
+
+</head>
+<body>
+<div id="subNav">
+<div id="subNavShell">
+  <ul class="tabset_tabs">
+	<li><a <?php if ($active_nav == 'admin') print 'class="active" '; ?> href="admin.php">Admin</a></li>
+	<li><a <?php if ($active_nav == 'email') print 'class="active" '; ?> href="email.php">Email Management</a></li>
+	<li><a <?php if ($active_nav == 'email_queue') print 'class="active" '; ?> href="email_queue.php">Email Queue Editor</a></li>
+	<li><a <?php if ($active_nav == 'players') print 'class="active" '; ?> href="players.php">Players Editor</a></li>
+  </ul>
+</div>
+</div>
+<div id="content">
+{content}
+</div>
+
+
+</body>
+</html>

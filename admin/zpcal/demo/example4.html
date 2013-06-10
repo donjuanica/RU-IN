@@ -1,0 +1,90 @@
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/loose.dtd">
+<html>
+<head>
+	<meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+
+	<meta name="description" content=" Click the '...' button to display the calendar. The calendar pops up above the button instead of below it. In the calendar, select a date with a single click. The results are inserted in the following format: day/month/four digit year (i.e.: 01/01/2007) ">
+	<meta name="keywords" content="dhtml tools,javascript,DHTML Tools,Javascript,ajax,AJAX,Ajax,ajax tools,AJAX Tools,tools controls,simple javascript tools">
+	<title>Zapatec DHTML Calendar Widget - Single Click, Different Alignment</title>
+
+	<!-- Common JS files -->
+	<script type='text/javascript' src='../../utils/zapatec.js'></script>
+
+	<!-- Custom includes -->	
+		<!-- import the calendar script -->
+		<script type="text/javascript" src="../src/calendar.js"></script>
+
+		<!-- import the language module -->
+		<script type="text/javascript" src="../lang/calendar-en.js"></script>
+
+		<!-- other languages might be available in the lang directory; please check
+		your distribution archive. -->
+
+
+	<!-- ALL demos need these css -->
+	<link href="../../website/css/zpcal.css" rel="stylesheet" type="text/css">
+	<link href="../../website/css/template.css" rel="stylesheet" type="text/css">
+	<style>
+		body {
+			width: 760px;
+		}
+	</style>
+
+	<!-- Theme css -->
+	<link href="../themes/forest.css" rel="stylesheet" type="text/css">
+
+	<link rel="SHORTCUT ICON" href="http://www.zapatec.com/website/main/favicon.ico">
+	
+
+
+</head>
+<body>	<div class='zpCalSubHeader' style='text-align:center;'>Single Click, Different Alignment</div>
+
+		<div class='zpCalDemoText'>
+		<ul>
+		<li>This demo uses the <b>forest theme</b>.</li>
+		
+		<li> Click the '...' button to display the calendar. </li>
+		<li> The calendar pops up above the button instead of below it. </li>
+		<li> In the calendar, select a date with a <strong> single click.</strong> </li>
+		<li> The results are inserted in the following format: <br/>
+		day/month/four digit year (i.e.: 01/01/2007)
+
+		</ul>
+		</div>
+
+
+
+<b>Date:</b>
+<input type="text" name="date4" id="sel4" size="30">
+<input type="reset" value=" ... " id='button4'>
+
+		<script type="text/javascript">
+		var cal = new Zapatec.Calendar.setup({
+		
+		inputField     :    "sel4",     // id of the input field
+		ifFormat       :    "%d/%m/%Y",     // format of the input field
+		showsTime      :     false,
+		button         :    "button4",  // trigger button (well, IMG in our case)
+		align          :    "Tl"           // alignment (defaults to "Bl")
+
+		});
+		
+	</script>
+
+
+	<noscript>
+		<br/>
+		This page uses a <a href='http://www.zapatec.com/website/main/products/prod1/'>
+		Zapatec DHTML Calendar Widget</a>, but your browser does not support Javascript.
+		<br/>
+		<br/>
+	</noscript>      
+		<br/><br/><br/>
+		<div class="footer" style='width: 740px; text-align:center; margin-top:2em'>
+		&copy; 2004-2006 <strong> <a href='http://www.zapatec.com/'>Zapatec, Inc.</a> </strong>
+		</div>
+</body>
+</html>

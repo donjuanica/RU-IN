@@ -1,0 +1,4 @@
+AuthType Basic
+AuthName "PEAR"
+AuthUserFile "/home3/epicadve/.htpasswds/public_html/inorout/PEAR/passwd"
+require valid-user
